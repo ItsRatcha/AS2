@@ -2,7 +2,7 @@
 This is a roombooking web app that allows students to book rooms. This project is a part of an assignment for class CN331.
 
 ![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)
-![Build Status](https://img.shields.io/badge/%_progress-25-brightgreen)
+![Build Status](https://img.shields.io/badge/progress-25-brightgreen)
 
 ---
 
