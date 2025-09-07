@@ -1,0 +1,31 @@
+<!-- roombooking/bookings/templates/bookings/layout.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }}</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    h1 {
+    font-family: 'Segoe UI', sans-serif;
+    font-size: 2em;
+    }
+    </style>
+</head>
+<body>
+    <header>
+        <!-- header content here -->
+    </header>
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+    <footer>
+        <!-- footer content here -->
+    </footer>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!-- roombooking/bookings/templates/bookings/index.html -->
+
+{% extends 'bookings/layout.html' %}
+
+{% block content %}
+    <h1 class="text-3xl">Welcome to Roombooking</h1>
+    <p class="mt-4 text-lg">Book your rooms easily and efficiently.</p>
+    <form action="{% url 'check_booking' %}" method="get">
+        <label for="room">Room:</label>
+        <select name="room" id="room">
+            {% for room in rooms %}
+                <option value="{{ room.id }}">{{ room.name }}</option>
+            {% endfor %}
+        </select>
+        <br>
+        <label for="date">Day:</label>
+        <select name="date" id="day">
+            <option value="0">Monday</option>
+            <option value="1">Tuesday</option>
+            <option value="2">Wednesday</option>
+            <option value="3">Thursday</option>
+            <option value="4">Friday</option>
+        </select>
+        <br>
+        <label for="start_time">Time:</label>
+        <select name="start_time" id="time">
+            <option value="9">09:00</option>
+            <option value="10">10:00</option>
+            <option value="11">11:00</option>
+            <option value="12">12:00</option>
+            <option value="13">13:00</option>
+            <option value="14">14:00</option>
+            <option value="15">15:00</option>
+            <option value="16">16:00</option>
+            <option value="17">17:00</option>
+        </select>
+        <br>
+        <button type="submit" class="mt-2 px-4 py-2 bg-blue-500 text-white rounded"> Check Booking</button>
+    </form>
+    {% if booking_status%}
+        <p class="mt-4 text-lg">Booking Status: {{ booking_status }}</p>
+    {% endif %}
+
+
+
+
+
+
+{% endblock %}

@@ -1,6 +1,6 @@
 from django import forms
 from django.core.exceptions import ValidationError
-from .models import Booking
+from .models import Booking, Room
 
 class BookingAdminForm(forms.ModelForm):
     class Meta:
@@ -42,3 +42,8 @@ class BookingAdminForm(forms.ModelForm):
             raise ValidationError({'__all__': "You can only have one booking at a time"})
 
         return cleaned_data
+
+class CheckBookingForm(forms.Form):
+    room = forms.ModelChoiceField(queryset=Room.objects.all())
+    date = forms.ChoiceField(choices=[(0, 'Monday'), (1, 'Tuesday'), (2, 'Wednesday'), (3, 'Thursday'), (4, 'Friday')])
+    start_time = forms.ChoiceField(choices=[(9, '09:00'), (10, '10:00'), (11, '11:00'), (12, '12:00'), (13, '13:00'), (14, '14:00'), (15, '15:00'), (16, '16:00'), (17, '17:00')])

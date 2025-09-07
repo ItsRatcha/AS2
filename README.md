@@ -19,7 +19,7 @@ This is a roombooking web app that allows students to book rooms. This project i
 - [x] A room cannot have more than one user book it at the same time(no double booking)
 - [ ] Booking with empty field(s) will cause an error pop up.
 - [ ] Users can delete their own booking.
-- [ ] Create a html page for user to check availability and booking form.
+- [x] Create a html page for user to check availability and booking form.
 - [ ] Create a login-logout page.
 - [ ] Use CSS to customize the page.
 - [ ] Create a staff group (staffs and admin have unlimited booking and can delete bookings)
