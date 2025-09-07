@@ -6,7 +6,7 @@ from django.conf import settings
 class Room(models.Model):
 
     name = models.CharField(max_length=100)
-    capacity = models.IntegerField(max_length=500)
+    capacity = models.IntegerField(null=False, blank=False)
     status = models.BooleanField(default=True)
 
     def __str__(self):

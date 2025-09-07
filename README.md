@@ -21,7 +21,7 @@ This is a roombooking web app that allows students to book rooms. This project i
 - [ ] Users can delete their own booking.
 - [x] Create a html page for user to check availability and booking form.
 - [ ] Create a login-logout page.
-- [ ] Use CSS to customize the page.
+- [x] Use CSS to customize the page. (Tailwindcss)
 - [ ] Create a staff group (staffs and admin have unlimited booking and can delete bookings)
 
 ## How to run

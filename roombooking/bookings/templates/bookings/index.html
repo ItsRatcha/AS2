@@ -3,9 +3,14 @@
 {% extends 'bookings/layout.html' %}
 
 {% block content %}
-    <h1 class="text-3xl">Welcome to Roombooking</h1>
-    <p class="mt-4 text-lg">Book your rooms easily and efficiently.</p>
-    <form action="{% url 'check_booking' %}" method="get">
+    <h1 class="text-3xl font-bold text-amber-50 align-middle text-center mt-10">Welcome to</h1>
+    <h1 class="text-6xl font-bold text-amber-50 text-center"> Roombooking</h1>
+    <p class="mt-4 text-center">Book your rooms easily and efficiently.</p>
+    
+    
+    <br>
+    <h2 class="text-2xl font-semibold text-amber-50 mt-6 ml-5">Check Room Availability</h2>
+    <form action="{% url 'check_booking' %}" method="get" class="ml-10">
         <label for="room">Room:</label>
         <select name="room" id="room">
             {% for room in rooms %}
@@ -35,7 +40,7 @@
             <option value="17">17:00</option>
         </select>
         <br>
-        <button type="submit" class="mt-2 px-4 py-2 bg-blue-500 text-white rounded"> Check Booking</button>
+        <button type="submit" class="mt-2 px-4 py-2 bg-amber-300 hover:bg-amber-400 text-amber-950 rounded-3xl"> Check Booking</button>
     </form>
     {% if booking_status%}
         <p class="mt-4 text-lg">Booking Status: {{ booking_status }}</p>
