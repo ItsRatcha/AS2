@@ -6,8 +6,7 @@ This is a roombooking web app that allows students to book rooms. This project i
 
 ---
 
-![placeholder for my web app screenshot](https://image.petmd.com/files/styles/863x625/public/CANS_dogsmiling_379727605.jpg)
-*this is a placeholder for my screenshot
+![placeholder for my web app screenshot](https://files.catbox.moe/tlqzxn.png)
 
 
 ## Current feature
