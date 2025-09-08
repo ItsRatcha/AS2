@@ -4,6 +4,7 @@ from .models import Booking, Room
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import redirect
 from django.views.decorators.http import require_POST
+from django.contrib import messages
 
 # Create your views here.
 def index(request):
@@ -58,6 +59,11 @@ def create_booking(request):
     day = request.POST.get('day')
     start_time = request.POST.get('start_time')
 
+    if not request.user.is_staff:
+        existing = Booking.objects.filter(user=request.user)
+        if existing:
+            messages.error(request,"You can only have one booking at a time")
+            return redirect('index')
     try:
         room = Room.objects.get(id=room_id)
         booking = Booking(room=room, day=day, start_time=start_time, user=request.user)

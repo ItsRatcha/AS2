@@ -16,12 +16,13 @@ This is a roombooking web app that allows students to book rooms. This project i
 - [x] Any user can create a booking with room, day and time.
 - [x] Students cannot book more than one booking at a time.
 - [x] A room cannot have more than one user book it at the same time(no double booking)
-- [ ] Booking with empty field(s) will cause an error pop up.
 - [ ] Users can delete their own booking.
 - [x] Create a html page for user to check availability and booking form.
 - [x] Create a login-logout page.
 - [x] Use CSS to customize the page. (Tailwindcss)
 - [ ] Create a staff group (staffs and admin have unlimited booking and can delete bookings)
+- [ ] Jump to "my booking" page after book.
+- [x] Users can only have one booking at a time.
 
 ## How to run
 1. Git clone the repository
