@@ -3,6 +3,7 @@ from .forms import CheckBookingForm
 from .models import Booking, Room
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import redirect
+from django.views.decorators.http import require_POST
 
 # Create your views here.
 def index(request):
@@ -13,7 +14,11 @@ def index(request):
 
 def check_booking(request):
     message = ""
+    selected_room = request.GET.get('room', None)
+    selected_day = request.GET.get('day', None)
+    selected_time = request.GET.get('start_time', None)
     rooms = Room.objects.all()
+    show_booking_button = False
     if 'room' in request.GET:
         form = CheckBookingForm(request.GET)
         if form.is_valid():
@@ -32,6 +37,7 @@ def check_booking(request):
                 message = "The room is not available for the selected time."
             else:
                 message = "The room is available for the selected time."
+                show_booking_button = True
         else:
             message = "Invalid input. Please correct the errors below."
         
@@ -39,5 +45,24 @@ def check_booking(request):
         'title': 'Home',
         'rooms': Room.objects.all(),
         'booking_status': message,
+        'show_booking_button': show_booking_button,
+        'selected_room': selected_room,
+        'selected_day': selected_day,
+        'selected_time': selected_time,
         }
         return render(request, 'bookings/index.html', context)
+    
+@require_POST
+def create_booking(request):
+    room_id = request.POST.get('room_id')
+    day = request.POST.get('day')
+    start_time = request.POST.get('start_time')
+
+    try:
+        room = Room.objects.get(id=room_id)
+        booking = Booking(room=room, day=day, start_time=start_time, user=request.user)
+        booking.save()
+        return redirect('index')
+    except Room.DoesNotExist:
+        return redirect('index')
+    
