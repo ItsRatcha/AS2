@@ -45,5 +45,5 @@ class BookingAdminForm(forms.ModelForm):
 
 class CheckBookingForm(forms.Form):
     room = forms.ModelChoiceField(queryset=Room.objects.all())
-    date = forms.ChoiceField(choices=[(0, 'Monday'), (1, 'Tuesday'), (2, 'Wednesday'), (3, 'Thursday'), (4, 'Friday')])
+    day = forms.ChoiceField(choices=[(0, 'Monday'), (1, 'Tuesday'), (2, 'Wednesday'), (3, 'Thursday'), (4, 'Friday')])
     start_time = forms.ChoiceField(choices=[(9, '09:00'), (10, '10:00'), (11, '11:00'), (12, '12:00'), (13, '13:00'), (14, '14:00'), (15, '15:00'), (16, '16:00'), (17, '17:00')])

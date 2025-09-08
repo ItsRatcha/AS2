@@ -15,7 +15,7 @@ class Room(models.Model):
 class Booking(models.Model):
 
     room = models.ForeignKey(Room, on_delete=models.CASCADE, null=False, blank=False)
-    date = models.IntegerField(choices=[(0, 'Monday'),(1, 'Tuesday'),(2, 'Wednesday'),(3, 'Thursday'),(4, 'Friday'),], null=False, blank=False)
+    day = models.IntegerField(choices=[(0, 'Monday'),(1, 'Tuesday'),(2, 'Wednesday'),(3, 'Thursday'),(4, 'Friday'),], null=False, blank=False)
     start_time = models.IntegerField(choices=[(9, '09:00'),(10, '10:00'),(11, '11:00'),(12, '12:00'),(13, '13:00'),(14, '14:00'),(15, '15:00'),(16, '16:00'),(17, '17:00'),], null=False, blank=False)
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     def clean(self):

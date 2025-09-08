@@ -18,12 +18,12 @@ def check_booking(request):
         form = CheckBookingForm(request.GET)
         if form.is_valid():
             room = form.cleaned_data['room']
-            date = form.cleaned_data['date']
+            day = form.cleaned_data['day']
             start_time = form.cleaned_data['start_time']
 
             bookings = Booking.objects.filter(
                 room=room,
-                date=date,
+                day=day,
                 start_time=start_time
             )
             
