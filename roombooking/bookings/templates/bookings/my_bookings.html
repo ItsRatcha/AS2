@@ -4,14 +4,22 @@
 
 <h1 class="text-6xl font-bold text-amber-50 align-middle text-center mt-10">Your Bookings</h1>
 <p class="text-center text-bold text-amber-50 mt-5">Student can only have one booking at any time.</p>
-
-
-
-
-
-
-
-
-
-
+{% if bookings %}
+    <ul>
+    {% for booking in bookings %}
+        <li>
+        <h1 class="text-2xl font-semibold text-amber-50">Room: {{ booking.room.name }}</h1>
+        Day: {% if booking.day == 0 %}Monday{% elif booking.day == 1 %}Tuesday{% elif booking.day == 2 %}Wednesday{% elif booking.day == 3 %}Thursday{% elif booking.day == 4 %}Friday{% else %}Saturday{% endif %}
+        <h3>Time: {{ booking.get_start_time_display }}</h3>
+        <form method="post" action="{% url 'cancel_booking' booking.id %}">
+            {% csrf_token %}
+            <button type="submit" class="mt-2 mb-10 bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-full">Cancel Booking</button>
+        <br>
+        </form>
+        </li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>You don't have any bookings.</p>
+{% endif %}
 {% endblock %}

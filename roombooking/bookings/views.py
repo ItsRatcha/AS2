@@ -76,7 +76,16 @@ def create_booking(request):
         room = Room.objects.get(id=room_id)
         booking = Booking(room=room, day=day, start_time=start_time, user=request.user)
         booking.save()
-        return redirect('index')
+        return redirect('my_bookings')
     except Room.DoesNotExist:
         return redirect('index')
-    
+
+def cancel_booking(request, booking_id):
+    if not request.user.is_authenticated:
+        return redirect('index')
+    try:
+        booking = Booking.objects.get(id=booking_id, user=request.user)
+        booking.delete()
+        return redirect('my_bookings')
+    except Booking.DoesNotExist:
+        return redirect('my_bookings')
