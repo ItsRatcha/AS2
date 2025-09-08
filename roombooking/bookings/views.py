@@ -12,6 +12,14 @@ def index(request):
         'title': 'Home',
         'rooms': Room.objects.all()
     })
+def my_bookings(request):
+    if not request.user.is_authenticated:
+        return redirect('index')
+    bookings = Booking.objects.filter(user=request.user)
+    return render(request, 'bookings/my_bookings.html', {
+        'title': 'My Bookings',
+        'bookings': bookings
+    })
 
 def check_booking(request):
     message = ""
