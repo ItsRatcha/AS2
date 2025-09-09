@@ -6,9 +6,9 @@ This is a roombooking web app that allows students to book rooms. This project i
 
 ---
 
-![screenshot1](Screenshots\Screenshot1.png)
-![screenshot2](Screenshots\Screenshot2.png)
-![screenshot3](Screenshots\Screenshot3.png)
+![screenshot1](Screenshots/Screenshot1.png)
+![screenshot2](Screenshots/Screenshot2.png)
+![screenshot3](Screenshots/Screenshot3.png)
 
 
 ## Current feature
