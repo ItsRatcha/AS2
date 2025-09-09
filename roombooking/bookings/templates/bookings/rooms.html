@@ -1,5 +1,26 @@
 {% extends 'bookings/layout.html' %}
 
 {% block content %}
-
+<h1 class="text-2xl font-bold mb-6">All Rooms</h1>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+    {% for room in rooms %}
+    <div class="bg-yellow-700 rounded-lg shadow-md p-6 flex justify-between">
+        <div>
+            <h2 class="text-2xl font-semibold text-amber-50">Room: {{ room.name }}</h2>
+            <p class="mb-4">{{ room.description }}</p>
+            <p class="font-semibold text-amber-50">Capacity: {{ room.capacity }}</p>
+            <p class="font-semibold text-amber-50">Status:
+                {% if room.status %}
+                    Open for booking
+                {% else %}
+                    Under maintenance
+                {% endif %}
+            </p>
+        </div>
+        <img src="{{ room.image_url }}" alt="Room Image" class="w-70 h-50 object-cover rounded-lg">
+    </div>
+    {% empty %}
+    <p>No rooms available.</p>
+    {% endfor %}
+</div>
 {% endblock %}

@@ -30,6 +30,7 @@ urlpatterns = [
     path('logout/', auth_views.LogoutView.as_view(next_page='/'), name='logout'),
     path('create_booking/', views.create_booking, name='create_booking'),
     path('cancel_booking/<int:booking_id>/', views.cancel_booking, name='cancel_booking'),
+    path('rooms/', views.rooms, name='rooms'),
 ]
 
 if settings.DEBUG:

@@ -4,18 +4,21 @@
 
 <h1 class="text-6xl font-bold text-amber-50 align-middle text-center mt-10">Your Bookings</h1>
 <p class="text-center text-bold text-amber-50 mt-5">Student can only have one booking at any time.</p>
+<br>
 {% if bookings %}
     <ul>
     {% for booking in bookings %}
-        <li>
-        <h1 class="text-2xl font-semibold text-amber-50">Room: {{ booking.room.name }}</h1>
-        Day: {% if booking.day == 0 %}Monday{% elif booking.day == 1 %}Tuesday{% elif booking.day == 2 %}Wednesday{% elif booking.day == 3 %}Thursday{% elif booking.day == 4 %}Friday{% else %}Saturday{% endif %}
-        <h3>Time: {{ booking.get_start_time_display }}</h3>
-        <form method="post" action="{% url 'cancel_booking' booking.id %}">
-            {% csrf_token %}
-            <button type="submit" class="mt-2 mb-10 bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-full">Cancel Booking</button>
-        <br>
-        </form>
+        <li class="bg-yellow-700 p-6 mb-6 rounded-lg shadow-md flex justify-between">
+            <div>
+                <h1 class="text-2xl font-semibold text-amber-50">Room: {{ booking.room.name }}</h1>
+                <h2 class="font-semibold text-amber-50">Day: {% if booking.day == 0 %}Monday{% elif booking.day == 1 %}Tuesday{% elif booking.day == 2 %}Wednesday{% elif booking.day == 3 %}Thursday{% elif booking.day == 4 %}Friday{% else %}Saturday{% endif %}</h2>
+                <h3 class="font-semibold text-amber-50">Time: {{ booking.get_start_time_display }}</h3>
+            </div>
+            <img src="{{ booking.room.image_url }}" alt="Room Image" class="w-70 h-50 object-cover rounded">
+            <form method="post" action="{% url 'cancel_booking' booking.id %}" class="ml-4">
+                {% csrf_token %}
+                <button type="submit" class="mt-2 mb-10 bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-full">Cancel Booking</button>
+            </form>
         </li>
     {% endfor %}
     </ul>

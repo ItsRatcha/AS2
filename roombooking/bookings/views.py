@@ -89,3 +89,6 @@ def cancel_booking(request, booking_id):
         return redirect('my_bookings')
     except Booking.DoesNotExist:
         return redirect('my_bookings')
+
+def rooms(request):
+    return render(request, 'bookings/rooms.html', {'rooms': Room.objects.all()})

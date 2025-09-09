@@ -8,6 +8,11 @@ class Room(models.Model):
     name = models.CharField(max_length=100)
     capacity = models.IntegerField(null=False, blank=False)
     status = models.BooleanField(default=True)
+    image_url = models.URLField(
+        max_length=500,
+        blank=True,
+        default="https://i.ibb.co/W4Bjq1tG/elementor-placeholder-image.jpg"
+    )
 
     def __str__(self):
         return self.name

@@ -6,9 +6,9 @@ This is a roombooking web app that allows students to book rooms. This project i
 
 ---
 
-![screenshot1](https://files.catbox.moe/0srd7q.png)
-![screenshot2](https://files.catbox.moe/57zsqg.png)
-![screenshot3](https://files.catbox.moe/9b36ob.png)
+![screenshot1](Screenshots\Screenshot1.png)
+![screenshot2](Screenshots\Screenshot2.png)
+![screenshot3](Screenshots\Screenshot3.png)
 
 
 ## Current feature
@@ -25,10 +25,11 @@ This is a roombooking web app that allows students to book rooms. This project i
 - [x] Create a staff group (staffs and admin have unlimited booking and can delete bookings)
 - [x] Jump to "my booking" page after book.
 - [x] Users can only have one booking at a time.
-- [ ] Rooms page with placeholder image.
+- [x] Rooms page with placeholder image.
 - [x] Tab icon.
-- [ ] Links to repo, contract at the bottom of sidebar.
-- [ ] Admin dashboard(Django Builtin) tab on sidebar
+- [ ] Links to repo, contract and admin page at the bottom of sidebar.
+- [ ] Each room has its own page showing time available and have booking option.
+- [ ] Homepage have a slideshow of rooms
 
 ## How to run
 1. Git clone the repository
