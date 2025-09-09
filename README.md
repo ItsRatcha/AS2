@@ -26,7 +26,7 @@ This is a roombooking web app that allows students to book rooms. This project i
 - [x] Jump to "my booking" page after book.
 - [x] Users can only have one booking at a time.
 - [ ] Rooms page with placeholder image.
-- [ ] Tab icon.
+- [x] Tab icon.
 - [ ] Links to repo, contract at the bottom of sidebar.
 - [ ] Admin dashboard(Django Builtin) tab on sidebar
 
