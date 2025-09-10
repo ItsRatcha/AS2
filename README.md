@@ -28,7 +28,7 @@ This is a roombooking web app that allows students to book rooms. This project i
 - [x] Rooms page with placeholder image.
 - [x] Tab icon.
 - [x] Links to repo, contract and admin page at the bottom of sidebar.
-- [ ] Each room has its own page showing time available and have booking option.
+- [x] Each room has its own page showing time available and have booking option.
 - [ ] Homepage have a slideshow of rooms
 
 ## How to run

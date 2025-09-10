@@ -8,7 +8,7 @@
 {% if bookings %}
     <ul>
     {% for booking in bookings %}
-        <li class="bg-yellow-700 p-6 mb-6 rounded-lg shadow-md flex justify-between">
+        <a href="{% url 'room_detail' booking.room.id %}" class="bg-yellow-700 p-6 mb-6 rounded-lg shadow-md flex justify-between">
             <div>
                 <h1 class="text-2xl font-semibold text-amber-50">Room: {{ booking.room.name }}</h1>
                 <h2 class="font-semibold text-amber-50">Day: {% if booking.day == 0 %}Monday{% elif booking.day == 1 %}Tuesday{% elif booking.day == 2 %}Wednesday{% elif booking.day == 3 %}Thursday{% elif booking.day == 4 %}Friday{% else %}Saturday{% endif %}</h2>
@@ -19,7 +19,7 @@
                 {% csrf_token %}
                 <button type="submit" class="mt-2 mb-10 bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-full">Cancel Booking</button>
             </form>
-        </li>
+        </a>
     {% endfor %}
     </ul>
 {% else %}

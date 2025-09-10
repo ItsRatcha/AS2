@@ -1,0 +1,96 @@
+{% extends 'bookings/layout.html' %}
+
+{% block content %}
+<h1 class="text-4xl font-bold">Room: {{ room.name }}</h1>
+<h2 class="text-2xl font-bold">Capacity: {{ room.capacity }}</h2>
+<div style="display: flex; align-items: center;">
+    <img src="{{ room.image_url }}" alt="{{ room.name }}" width="700" class="rounded-3xl mt-10 mb-10">
+    <div style="margin-left: 20px;">
+            <h2 class="text-2xl font-semibold text-amber-50 mt-6 ml-5">Check Room Availability</h2>
+    <form action="{% url 'check_booking' %}" method="get" class="ml-10">
+        <br>
+        <input type="hidden" name="room" value="{{ room.id }}">
+        <label for="day">Day:</label>
+        <select name="day" id="day">
+                <option value="0" {% if selected_day == "0" %}selected{% endif %}>Monday</option>
+                <option value="1" {% if selected_day == "1" %}selected{% endif %}>Tuesday</option>
+                <option value="2" {% if selected_day == "2" %}selected{% endif %}>Wednesday</option>
+                <option value="3" {% if selected_day == "3" %}selected{% endif %}>Thursday</option>
+                <option value="4" {% if selected_day == "4" %}selected{% endif %}>Friday</option>
+        </select>
+        <br>
+        <label for="start_time">Time:</label>
+        <select name="start_time" id="time">
+            <option value="9" {% if selected_time == "9" %}selected{% endif %}>09:00</option>
+            <option value="10" {% if selected_time == "10" %}selected{% endif %}>10:00</option>
+            <option value="11" {% if selected_time == "11" %}selected{% endif %}>11:00</option>
+            <option value="12" {% if selected_time == "12" %}selected{% endif %}>12:00</option>
+            <option value="13" {% if selected_time == "13" %}selected{% endif %}>13:00</option>
+            <option value="14" {% if selected_time == "14" %}selected{% endif %}>14:00</option>
+            <option value="15" {% if selected_time == "15" %}selected{% endif %}>15:00</option>
+            <option value="16" {% if selected_time == "16" %}selected{% endif %}>16:00</option>
+            <option value="17" {% if selected_time == "17" %}selected{% endif %}>17:00</option>
+        </select>
+
+        <br>
+        <button type="submit" class="mt-2 px-4 py-2 bg-amber-300 hover:bg-amber-400 text-amber-950 rounded-3xl"> Check Booking</button>
+    </form>
+    {% if booking_status%}
+        <h2 class="text-2xl font-semibold text-amber-50 mt-6 ml-5">Booking</h2>
+        <p class="mt-4 text-lg ml-5">Booking Status: {{ booking_status }}</p>
+    {% endif %}
+
+    {% if show_booking_button %}
+    <form action="{% url 'create_booking' %}" method="post" class="mt-4 ml-10 inline-block">
+        {% csrf_token %}
+        <input type="hidden" name="room_id" value="{{ request.GET.room }}">
+        <input type="hidden" name="day" value="{{ request.GET.day }}">
+        <input type="hidden" name="start_time" value="{{ request.GET.start_time }}">
+        <button type="submit" class="px-4 py-2 bg-green-500 hover:bg-green-600 text-white rounded-3xl">
+            Create Booking
+        </button>
+    </form>
+    {% endif %}
+
+
+    </div>
+</div>
+
+<table border="1" cellspacing="0" cellpadding="5">
+    <thead>
+    <tr>
+        <th>Day</th>
+        {% for slot in availability.0.slots %}
+        <th>{{ slot.time }}</th>
+        {% endfor %}
+    </tr>
+    </thead>
+    <tbody>
+    {% for day in availability %}
+    <tr>
+        <td>{{ day.day }}</td>
+        {% for slot in day.slots %}
+        <td>
+            {% if slot.booked %}
+            ❌ {{ slot.user }}
+            {% else %}
+            ✅ Available
+            {% endif %}
+        </td>
+        {% endfor %}
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}

@@ -1,10 +1,10 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect, get_object_or_404
 from .forms import CheckBookingForm
 from .models import Booking, Room
 from django.contrib.auth.decorators import login_required
-from django.shortcuts import redirect
 from django.views.decorators.http import require_POST
 from django.contrib import messages
+
 
 # Create your views here.
 def index(request):
@@ -92,3 +92,36 @@ def cancel_booking(request, booking_id):
 
 def rooms(request):
     return render(request, 'bookings/rooms.html', {'rooms': Room.objects.all()})
+
+
+def room_detail(request, room_id):
+    room = get_object_or_404(Room, pk=room_id)
+
+    # time slots (9–17)
+    time_choices = dict(Booking._meta.get_field("start_time").choices)
+    # days (Mon–Fri)
+    day_choices = dict(Booking._meta.get_field("day").choices)
+
+    # grab all bookings for this room
+    bookings = Booking.objects.filter(room=room)
+
+    # build availability grid
+    availability = []
+    for day_val, day_name in day_choices.items():
+        day_slots = []
+        for time_val, time_label in time_choices.items():
+            booked = bookings.filter(day=day_val, start_time=time_val).first()
+            day_slots.append({
+                "time": time_label,
+                "booked": bool(booked),
+                "user": booked.user.username if booked else None
+            })
+        availability.append({
+            "day": day_name,
+            "slots": day_slots
+        })
+
+    return render(request, "bookings/room_detail.html", {
+        "room": room,
+        "availability": availability
+    })

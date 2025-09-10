@@ -21,6 +21,7 @@ from django.conf import settings
 from django.contrib.auth import views as auth_views
 
 
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index, name='index'),
@@ -31,6 +32,7 @@ urlpatterns = [
     path('create_booking/', views.create_booking, name='create_booking'),
     path('cancel_booking/<int:booking_id>/', views.cancel_booking, name='cancel_booking'),
     path('rooms/', views.rooms, name='rooms'),
+    path("room/<int:room_id>/", views.room_detail, name="room_detail"),
 ]
 
 if settings.DEBUG:
