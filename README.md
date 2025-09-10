@@ -5,11 +5,7 @@ This is a roombooking web app that allows students to book rooms. This project i
 ![Build Status](https://img.shields.io/badge/progress-25-brightgreen)
 
 ---
-
-![screenshot1](Screenshots/Screenshot1.png)
-![screenshot2](Screenshots/Screenshot2.png)
-![screenshot3](Screenshots/Screenshot3.png)
-
+![title](Screenshots/Title.jpg)
 
 ## Current feature
 - [x] Create rooms
@@ -29,7 +25,7 @@ This is a roombooking web app that allows students to book rooms. This project i
 - [x] Tab icon.
 - [x] Links to repo, contract and admin page at the bottom of sidebar.
 - [x] Each room has its own page showing time available and have booking option.
-- [ ] Homepage have a slideshow of rooms
+- [x] Homepage have a slideshow of rooms
 
 ## How to run
 1. Git clone the repository
@@ -41,3 +37,8 @@ This is a roombooking web app that allows students to book rooms. This project i
    1. `python manage.py runserver`
    2. `python manage.py tailwind start`
 
+## Screetshots
+![screenshot1](Screenshots/Screenshot1.png)
+![screenshot2](Screenshots/Screenshot2.png)
+![screenshot3](Screenshots/Screenshot3.png)
+![screenshot4](Screenshots/Screenshot4.png)
