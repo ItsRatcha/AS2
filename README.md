@@ -27,12 +27,13 @@ This is a roombooking web app that allows students to book rooms. This project i
 - [x] Users can only have one booking at a time.
 - [x] Rooms page with placeholder image.
 - [x] Tab icon.
-- [ ] Links to repo, contract and admin page at the bottom of sidebar.
+- [x] Links to repo, contract and admin page at the bottom of sidebar.
 - [ ] Each room has its own page showing time available and have booking option.
 - [ ] Homepage have a slideshow of rooms
 
 ## How to run
 1. Git clone the repository
+   1. (Optional) User virtual environment with `python -m venv .venv` and `.\.venv\Scripts\activate`
 2. `pip install -r requirements.txt`
 3. `cd roombooking`
 4. `python manage.py tailwind dev`.
