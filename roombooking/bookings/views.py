@@ -40,9 +40,10 @@ def check_booking(request):
                 day=day,
                 start_time=start_time
             )
-            
+            if room.status == 0:
+                message = "The room is currently under maintenance."
 
-            if bookings.exists():
+            elif bookings.exists():
                 message = "The room is not available for the selected time."
             else:
                 message = "The room is available for the selected time."
