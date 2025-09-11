@@ -70,13 +70,23 @@
     <tr>
         <td>{{ day.day }}</td>
         {% for slot in day.slots %}
-        <td>
-            {% if slot.booked %}
-            ❌ {{ slot.user }}
-            {% else %}
-            ✅ Available
-            {% endif %}
-        </td>
+            
+        <td class="text-center p-2 border">
+                    {% if slot.restricted %}
+                        <span class="bg-gray-300 text-gray-700 font-semibold py-1 px-3 rounded-full text-xs">
+                            🚫 Unavailable
+                        </span>
+                    {% elif slot.booked %}
+                        <span class="bg-red-200 text-red-800 font-semibold py-1 px-3 rounded-full text-xs">
+                            ❌ Booked by {{ slot.user }}
+                        </span>
+                    {% else %}
+                        <span class="bg-green-200 text-green-800 font-semibold py-1 px-3 rounded-full text-xs">
+                            ✅ Available
+                        </span>
+                    {% endif %}
+                </td>
+
         {% endfor %}
     </tr>
     {% endfor %}
