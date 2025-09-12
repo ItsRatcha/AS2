@@ -89,6 +89,10 @@ Contributions are welcome! Feel free to open issues or submit PRs.
 *Room detail and availability*
 ![screenshot4](Screenshots/Screenshot4.png)
 
+## Video guide
+
+The video guide and introduction is up on Youtube: [youtu.be/hjAHmUp8uWc](https://youtu.be/hjAHmUp8uWc) (Note that the spoken language is Thai as per professor's preference)
+
 ## Author
 Ratchanon Moungwichean, undergraduate from [Thammasat University](https://tu.ac.th/). Bachelor’s degree candidate in Computer Engineering.
 
