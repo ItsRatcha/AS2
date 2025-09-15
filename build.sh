@@ -2,16 +2,17 @@
 # Exit on error
 set -o errexit
 
-npm install
-npm run build:css
-
-# Modify this line as needed for your project
+# Python dependencies
 python -m pip install --upgrade pip
-
 pip install -r requirements.txt
 
-# Collect static files
-python manage.py collectstatic --noinput
+# Node.js dependencies (only if package.json exists)
+if [ -f package.json ]; then
+    echo "Installing Node.js dependencies..."
+    npm install
+    npm run build:css
+fi
 
-# Apply any outstanding migrations
+# Django setup
+python manage.py collectstatic --noinput
 python manage.py migrate

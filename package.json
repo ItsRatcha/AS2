@@ -1,0 +1,14 @@
+{
+  "name": "your-django-app",
+  "version": "1.0.0",
+  "description": "Django app with TailwindCSS",
+  "scripts": {
+    "build:css": "tailwindcss -i ./static/src/input.css -o ./static/css/output.css --minify"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
