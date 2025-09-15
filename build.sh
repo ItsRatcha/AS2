@@ -3,19 +3,18 @@ set -o errexit
 
 echo "Starting build process..."
 
-# Install Python dependencies
+# Upgrade pip & install dependencies
 pip install --upgrade pip
 pip install -r requirements.txt
 
-# Navigate to Django project directory
+# Navigate to Django project folder
 cd roombooking
 
-gunicorn roombooking.wsgi:application
+# Run migrations first
+python manage.py migrate --noinput || echo "migrate failed, continuing..."
 
-# Try to run collectstatic, but continue if it fails
+# Collect static files
 python manage.py collectstatic --noinput || echo "collectstatic failed, continuing..."
 
-# Run migrations (this might also fail if database is not configured, but that's okay)
-python manage.py migrate || echo "migrate failed, continuing..."
-
-echo "Build completed successfully!"
+# Start gunicorn server with the correct WSGI path
+gunicorn <roombooking>.wsgi:application --bind 0.0.0.0:10000
