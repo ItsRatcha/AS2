@@ -2,13 +2,15 @@
 # Exit on error
 set -o errexit
 
-cd roombooking
+
 
 # Python dependencies only
 python -m pip install --upgrade pip
 pip install -r requirements.txt
 
 # Django setup
+
+cd roombooking
 python manage.py collectstatic --noinput
 python manage.py migrate
 
