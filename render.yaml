@@ -5,7 +5,7 @@ services:
     plan: free
     branch: deploy
     buildCommand: "./build.sh"
-    startCommand: "gunicorn your_project_name.wsgi:application"
+    startCommand: "cd roombooking && gunicorn roombooking.wsgi:application"
     envVars:
       - key: PYTHON_VERSION
         value: 3.11.0

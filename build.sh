@@ -1,16 +1,14 @@
 #!/usr/bin/env bash
-# Exit on error
 set -o errexit
 
-
-
-# Python dependencies only
-python -m pip install --upgrade pip
+# Install Python dependencies from root requirements.txt
+pip install --upgrade pip
 pip install -r requirements.txt
 
-# Django setup
-
+# Navigate to Django project directory
 cd roombooking
+
+# Run Django commands
 python manage.py collectstatic --noinput
 python manage.py migrate
 
