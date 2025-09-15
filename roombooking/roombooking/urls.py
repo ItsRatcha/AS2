@@ -19,8 +19,10 @@ from django.urls import path, include
 from bookings import views
 from django.conf import settings
 from django.contrib.auth import views as auth_views
+from django.http import HttpResponse
 
-
+def health_check(request):
+    return HttpResponse("✅ Health check OK! Django is running!")
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -33,6 +35,7 @@ urlpatterns = [
     path('cancel_booking/<int:booking_id>/', views.cancel_booking, name='cancel_booking'),
     path('rooms/', views.rooms, name='rooms'),
     path("room/<int:room_id>/", views.room_detail, name="room_detail"),
+    path('health/', health_check, name='health_check'),
 ]
 
 if settings.DEBUG:
