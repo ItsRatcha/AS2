@@ -7,12 +7,10 @@ charset-normalizer==3.4.3
 click==8.2.1
 colorama==0.4.6
 cookiecutter==2.6.0
-decouple==0.0.7
 dj-database-url==3.0.1
 Django==5.2.5
 django-browser-reload==1.18.0
 django-tailwind==4.2.0
-environ==1.0
 honcho==2.0.0
 idna==3.10
 Jinja2==3.1.6
