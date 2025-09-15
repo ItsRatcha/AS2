@@ -21,6 +21,7 @@ markdown-it-py==4.0.0
 MarkupSafe==3.0.2
 mdurl==0.1.2
 packaging==25.0
+psycopg[binary]
 Pygments==2.19.2
 python-dateutil==2.9.0.post0
 python-slugify==8.0.4
