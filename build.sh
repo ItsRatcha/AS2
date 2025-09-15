@@ -11,9 +11,9 @@ pip install -r requirements.txt
 cd roombooking
 
 # Run migrations
-python manage.py migrate --noinput || echo "migrate failed, continuing..."
+python manage.py migrate --noinput
 
 # Collect static files
-python manage.py collectstatic --noinput || echo "collectstatic failed, continuing..."
+python manage.py collectstatic --noinput
 
 echo "Build completed successfully!"
