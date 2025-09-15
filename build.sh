@@ -10,6 +10,8 @@ pip install -r requirements.txt
 # Navigate to Django project directory
 cd roombooking
 
+gunicorn roombooking.wsgi:application
+
 # Try to run collectstatic, but continue if it fails
 python manage.py collectstatic --noinput || echo "collectstatic failed, continuing..."
 
