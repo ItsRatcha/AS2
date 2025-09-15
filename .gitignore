@@ -6,6 +6,5 @@ __pycache__
 db.sqlite3
 media
 __pycache__/
-__init__.py
 room images/
 .env
