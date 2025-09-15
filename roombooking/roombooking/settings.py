@@ -38,7 +38,7 @@ SECRET_KEY = 'django-insecure-mti-lbc)bw$)@oxh*7n#%qq(rj&=j2k=(t^lnbz62-0t4!u_w*
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get('DEBUG', 'False').lower() == 'true'
 
-ALLOWED_HOSTS = ['as2-xvtz.onrender.com', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['as3-6pet.onrender.com', 'localhost', '127.0.0.1']
 
 RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
 if RENDER_EXTERNAL_HOSTNAME:
