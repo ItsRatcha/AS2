@@ -2,23 +2,28 @@
 set -o errexit
 
 echo "Starting build process..."
+echo "Current directory: $(pwd)"
+echo "Directory contents:"
+ls -la
 
 # Upgrade pip & install dependencies
 pip install --upgrade pip
 pip install -r requirements.txt
 
-# Navigate to Django project folder
-cd roombooking
-
-# Set environment variables
-export DATABASE_URL=$DATABASE_URL
-
 echo "DATABASE_URL is $DATABASE_URL"
 
-# Run migrations
-python manage.py migrate --noinput
+# Check if manage.py exists
+if [ -f "manage.py" ]; then
+    echo "manage.py found! Running migrations..."
+    python manage.py migrate --noinput
+    python manage.py showmigrations
+else
+    echo "ERROR: manage.py not found!"
+    echo "Current directory contents:"
+    ls -la
+    exit 1
+fi
 
-# Collect static files
 python manage.py collectstatic --noinput
 
 echo "Build completed successfully!"
