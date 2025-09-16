@@ -13,6 +13,8 @@ cd roombooking
 # Set environment variables
 export DATABASE_URL=$DATABASE_URL
 
+echo "DATABASE_URL is $DATABASE_URL"
+
 # Run migrations
 python manage.py migrate --noinput
 
