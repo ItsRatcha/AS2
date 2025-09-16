@@ -2,28 +2,30 @@
 set -o errexit
 
 echo "Starting build process..."
+
+# Upgrade pip
+pip install --upgrade pip
+
+# Install dependencies
+pip install -r requirements.txt
+
 echo "Current directory: $(pwd)"
 echo "Directory contents:"
 ls -la
 
-# Upgrade pip & install dependencies
-pip install --upgrade pip
-pip install -r requirements.txt
-
-echo "DATABASE_URL is $DATABASE_URL"
-
-# Check if manage.py exists
+# Check if we're in the right directory and run migrations
 if [ -f "manage.py" ]; then
-    echo "manage.py found! Running migrations..."
+    echo "Running migrations..."
     python manage.py migrate --noinput
-    python manage.py showmigrations
+    echo "Migrations completed"
 else
-    echo "ERROR: manage.py not found!"
-    echo "Current directory contents:"
-    ls -la
+    echo "ERROR: manage.py not found in current directory!"
+    echo "Looking for manage.py..."
+    find . -name "manage.py" -type f
     exit 1
 fi
 
+# Collect static files
 python manage.py collectstatic --noinput
 
 echo "Build completed successfully!"
