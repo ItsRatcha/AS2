@@ -7,6 +7,14 @@ echo "Starting build process..."
 pip install --upgrade pip
 pip install -r requirements.txt
 
+cd roombooking
+
+# Set environment variables
+export DATABASE_URL=$DATABASE_URL
+
+echo "DATABASE_URL is $DATABASE_URL"
+
+
 echo "Running migrations..."
 python manage.py migrate --noinput
 
