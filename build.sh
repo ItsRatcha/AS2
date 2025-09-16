@@ -26,7 +26,15 @@ else
     echo "Superuser environment variables not set, skipping superuser creation"
 fi
 
+echo "Installing Tailwind dependencies..."
+cd theme/static_src
+npm install
+npm run build
+cd ../..
+
 echo "Collecting static files..."
 python manage.py collectstatic --noinput
 
 echo "Build completed successfully!"
+
+
