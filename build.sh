@@ -3,27 +3,20 @@ set -o errexit
 
 echo "Starting build process..."
 
-# Upgrade pip
+# Upgrade pip & install dependencies
 pip install --upgrade pip
-
-# Install dependencies
 pip install -r requirements.txt
 
-echo "Current directory: $(pwd)"
-echo "Directory contents:"
-ls -la
+# Navigate to Django project folder
+cd roombooking
 
-# Check if we're in the right directory and run migrations
-if [ -f "manage.py" ]; then
-    echo "Running migrations..."
-    python manage.py migrate --noinput
-    echo "Migrations completed"
-else
-    echo "ERROR: manage.py not found in current directory!"
-    echo "Looking for manage.py..."
-    find . -name "manage.py" -type f
-    exit 1
-fi
+# Set environment variables
+export DATABASE_URL=$DATABASE_URL
+
+echo "DATABASE_URL is $DATABASE_URL"
+
+# Run migrations
+python manage.py migrate --noinput
 
 # Collect static files
 python manage.py collectstatic --noinput
