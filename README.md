@@ -1,3 +1,11 @@
+# This is a deploy branch!
+This branch is specifically made for deploying this web app online as a demo.
+
+The website is live now [here](https://as3-6pet.onrender.com)! (keep in mind that it is one Render's free tier and the speed might vary)
+
+Check out this [video guide](https://youtu.be/bDr_jV5He5U) I made on Youtube.
+
+
 # Room Booking Django Web App
 This is a roombooking web app that allows students to book rooms. This project is a part of an assignment for class CN331.
 
