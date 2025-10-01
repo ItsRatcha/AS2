@@ -30,10 +30,12 @@ jobs:
 
       # 4. Apply migrations
       - name: Apply migrations
+        working-directory: roombooking
         run: python manage.py migrate
 
       # 5. Run tests with coverage
       - name: Run tests
+        working-directory: roombooking
         run: |
           coverage run --source='.' manage.py test
           coverage report
