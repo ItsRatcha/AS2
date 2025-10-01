@@ -1,3 +1,23 @@
+# This is a testing branch!
+This branch is made specifically for testing purposes.
+
+This branch includes:
+- Tests file in roombooking/bookings/testcases for model, form and view tests
+- Custom Github action workflow for automatic test and report.
+
+You can run the test with
+```
+python manage.py test
+```
+Alternatively, you can run the tests using coverage library:
+```
+coverage run --source='bookings' manage.py test
+```
+to create coverage. and get the output with either `coverage report` or `coverage xml`
+
+Make sure to have install the requirements in the How to run section below.
+
+
 # Room Booking Django Web App
 This is a roombooking web app that allows students to book rooms. This project is a part of an assignment for class CN331.
 
